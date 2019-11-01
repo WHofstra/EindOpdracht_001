@@ -3,22 +3,20 @@
 MultipleChoice::MultipleChoice(std::string aQuestion, std::list<std::string> anAnswer, int aCorrect, int aPoint)
 	:question(aQuestion), answers(anAnswer), correctOne(aCorrect), points(aPoint)
 {
-	int options[(int)sizeof(answers)];
+	int options[sizeof(answers)];
 
-	for (int i = 0; i < sizeof(options); i++)
+	for (int i = 0; i < sizeof(answers); i++)
 	{
 		options[i] = i;
 	}
 
 	correctOne = CheckCorrectAnswer(options, correctOne);
 	ShowQuestionAndOptions(question, answers, points);
+	
+	std::cin >> choice;
 
-	while (input == NULL)
-	{
-		input = InputChoice(answers);
-	}
-
-	correct = CorrectOrNah(InputChoice(answers), options, correctOne);
+	input = InputChoice(answers, choice);
+	correct = CorrectOrNah(input, options, correctOne);
 
 	if (correct)
 	{
@@ -28,6 +26,8 @@ MultipleChoice::MultipleChoice(std::string aQuestion, std::list<std::string> anA
 	{
 		IncorrectMessage("Your answer is incorrect. The correct answer was: ", answers, correctOne);
 	}
+
+	std::cout << std::endl;
 }
 
 MultipleChoice::~MultipleChoice()
@@ -58,15 +58,13 @@ void MultipleChoice::ShowQuestionAndOptions(std::string aQuestion, std::list<std
 	}
 }
 
-char MultipleChoice::InputChoice(std::list<std::string> anAnswer)
+char MultipleChoice::InputChoice(std::list<std::string> anAnswer, std::string aChoice)
 {
-	std::cin >> choice;
-
 	for (int i = 0; i < sizeof(anAnswer); i++)
 	{
-		if (choice[0] == (char)(i + ASCII_CAPITAL_START_DEC) || choice[0] == (char)(i + ASCII_LOWER_START_DEC))
+		if (aChoice[0] == (char)(i + ASCII_CAPITAL_START_DEC) || aChoice[0] == (char)(i + ASCII_LOWER_START_DEC))
 		{
-			return choice[0];
+			return aChoice[0];
 		}
 	}
 
@@ -84,12 +82,12 @@ bool MultipleChoice::CorrectOrNah(char aChoice, int anOption[], int aCorrect)
 			if (aChoice == (char)(i + ASCII_CAPITAL_START_DEC) || aChoice == (char)(i + ASCII_LOWER_START_DEC))
 			{
 				choiceInt = anOption[i];
-			}
-		}
 
-		if (choiceInt == aCorrect)
-		{
-			return true;
+				if (choiceInt == aCorrect)
+				{
+					return true;
+				}
+			}
 		}
 	}
 

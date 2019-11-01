@@ -11,7 +11,7 @@ class MultipleChoice
 
 	  int CheckCorrectAnswer(int anOption[], int aCorrectInput);
 	  void ShowQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint);
-	  char InputChoice(std::list<std::string> anAnswer);
+	  char InputChoice(std::list<std::string> anAnswer, std::string aChoice);
 	  bool CorrectOrNah(char aChoice, int anOption[], int aCorrect);
 
 	  void CorrectMessage(std::string aMessage, int aPoint);
