@@ -152,9 +152,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EindOpdracht_001.cpp" />
+    <ClCompile Include="IntroOutro.cpp" />
     <ClCompile Include="MultipleChoice.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IntroOutro.h" />
     <ClInclude Include="MultipleChoice.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

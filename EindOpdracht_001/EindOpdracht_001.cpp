@@ -3,11 +3,20 @@
 
 #include <iostream>
 
-int score;
+#include "MultipleChoice.h"
+#include "IntroOutro.h"
 
 int main()
 {
-	score = 0;
+	int score = 0;
+	
+	new IntroOutro({ "Your knowledge about Bionicle will be tested in this quiz.",
+		             "This quiz is all about the G1-sets (Generation 1, 2001-2010) and the lore surrounding it.",
+		             "The maximum amount of points you can score is 32. Good luck."});
+
+	new IntroOutro({ "Thank you for answering all questions and adding your own question.",
+					 "Have a nice day, and live by these wise words:",
+					 "" });
 
 	exit(0);
 }
