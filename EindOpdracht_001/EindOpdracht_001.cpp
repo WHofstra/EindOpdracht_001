@@ -3,11 +3,11 @@
 
 #include <iostream>
 
+int score;
+
 int main()
 {
-    //std::cout << "Hello World!\n";
+	score = 0;
 
-	while (true) {
-
-	}
+	exit(0);
 }
