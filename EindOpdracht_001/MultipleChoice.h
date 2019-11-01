@@ -9,7 +9,7 @@ class MultipleChoice
 	  MultipleChoice(std::string aQuestion, std::list<std::string> anAnswer, int aCorrect, int aPoint);
 	  ~MultipleChoice();
 
-	  int CheckCorrectAnswer(int anOption[], int aCorrect);
+	  int CheckCorrectAnswer(int anOption[], int aCorrectInput);
 	  void ShowQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint);
 	  char InputChoice(std::list<std::string> anAnswer);
 	  bool CorrectOrNah(char aChoice, int anOption[], int aCorrect);

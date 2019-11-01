@@ -1,19 +1,16 @@
 #include "MultipleChoice.h"
 
 MultipleChoice::MultipleChoice(std::string aQuestion, std::list<std::string> anAnswer, int aCorrect, int aPoint)
+	:question(aQuestion), answers(anAnswer), correctOne(aCorrect), points(aPoint)
 {
-	int options[sizeof(anAnswer)];
+	int options[(int)sizeof(answers)];
 
 	for (int i = 0; i < sizeof(options); i++)
 	{
 		options[i] = i;
 	}
 
-	question = aQuestion;
-	answers = anAnswer;
-	points = aPoint;
-
-	correctOne = CheckCorrectAnswer(options, aCorrect);
+	correctOne = CheckCorrectAnswer(options, correctOne);
 	ShowQuestionAndOptions(question, answers, points);
 
 	while (input == NULL)
@@ -38,10 +35,10 @@ MultipleChoice::~MultipleChoice()
 
 }
 
-int MultipleChoice::CheckCorrectAnswer(int anOption[], int aCorrect)
+int MultipleChoice::CheckCorrectAnswer(int anOption[], int aCorrectInput)
 {
-	if (aCorrect < sizeof(anOption)) {
-		return aCorrect;
+	if (aCorrectInput < sizeof(anOption)) {
+		return aCorrectInput;
 	}
 
 	return NULL;
