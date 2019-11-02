@@ -9,13 +9,13 @@ class MultipleChoice
 	  MultipleChoice(std::string aQuestion, std::list<std::string> anAnswer, int aCorrect, int aPoint);
 	  ~MultipleChoice();
 
-	  int CheckCorrectAnswer(int anOption[], int aCorrectInput);
-	  void ShowQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint);
-	  char InputChoice(std::list<std::string> anAnswer, std::string aChoice);
-	  bool CorrectOrNah(char aChoice, int anOption[], int aCorrect);
+	  int SetCorrectAnswer(int anOption[], int aCorrectInput);
+	  void GetQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint);
+	  char SetPlayerChoice(std::list<std::string> anAnswer, std::string aChoice);
+	  bool GetCorrectAnswer(char aChoice, int anOption[], int aCorrect);
 
-	  void CorrectMessage(std::string aMessage, int aPoint);
-	  void IncorrectMessage(std::string aMessage, std::list<std::string> anAnswer, int aCorrect);
+	  void GetCorrectMessage(std::string aMessage, int aPoint);
+	  void GetIncorrectMessage(std::string aMessage, std::list<std::string> anAnswer, int aCorrect);
 
   private:
 	  const int ASCII_CAPITAL_START_DEC = 65;

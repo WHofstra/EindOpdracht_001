@@ -10,21 +10,21 @@ MultipleChoice::MultipleChoice(std::string aQuestion, std::list<std::string> anA
 		options[i] = i;
 	}
 
-	correctOne = CheckCorrectAnswer(options, correctOne);
-	ShowQuestionAndOptions(question, answers, points);
+	correctOne = SetCorrectAnswer(options, correctOne);
+	GetQuestionAndOptions(question, answers, points);
 	
 	std::cin >> choice;
 
-	input = InputChoice(answers, choice);
-	correct = CorrectOrNah(input, options, correctOne);
+	input = SetPlayerChoice(answers, choice);
+	correct = GetCorrectAnswer(input, options, correctOne);
 
 	if (correct)
 	{
-		CorrectMessage("Your answer is correct.", points);
+		GetCorrectMessage("Your answer is correct.", points);
 	}
 	else
 	{
-		IncorrectMessage("Your answer is incorrect. The correct answer was: ", answers, correctOne);
+		GetIncorrectMessage("Your answer is incorrect. The correct answer was: ", answers, correctOne);
 	}
 
 	std::cout << std::endl;
@@ -35,7 +35,7 @@ MultipleChoice::~MultipleChoice()
 
 }
 
-int MultipleChoice::CheckCorrectAnswer(int anOption[], int aCorrectInput)
+int MultipleChoice::SetCorrectAnswer(int anOption[], int aCorrectInput)
 {
 	if (aCorrectInput < sizeof(anOption)) {
 		return aCorrectInput;
@@ -44,7 +44,7 @@ int MultipleChoice::CheckCorrectAnswer(int anOption[], int aCorrectInput)
 	return NULL;
 }
 
-void MultipleChoice::ShowQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint)
+void MultipleChoice::GetQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint)
 {
 	std::list<std::string>::iterator i;
 	int j;
@@ -58,7 +58,7 @@ void MultipleChoice::ShowQuestionAndOptions(std::string aQuestion, std::list<std
 	}
 }
 
-char MultipleChoice::InputChoice(std::list<std::string> anAnswer, std::string aChoice)
+char MultipleChoice::SetPlayerChoice(std::list<std::string> anAnswer, std::string aChoice)
 {
 	for (int i = 0; i < sizeof(anAnswer); i++)
 	{
@@ -73,7 +73,7 @@ char MultipleChoice::InputChoice(std::list<std::string> anAnswer, std::string aC
 	return NULL;
 }
 
-bool MultipleChoice::CorrectOrNah(char aChoice, int anOption[], int aCorrect)
+bool MultipleChoice::GetCorrectAnswer(char aChoice, int anOption[], int aCorrect)
 {
 	int choiceInt;
 
@@ -94,12 +94,12 @@ bool MultipleChoice::CorrectOrNah(char aChoice, int anOption[], int aCorrect)
 	return false;
 }
 
-void MultipleChoice::CorrectMessage(std::string aMessage, int aPoint)
+void MultipleChoice::GetCorrectMessage(std::string aMessage, int aPoint)
 {
 	std::cout << aMessage << " (+" << aPoint << " points)" << std::endl;
 }
 
-void MultipleChoice::IncorrectMessage(std::string aMessage, std::list<std::string> anAnswer, int aCorrect)
+void MultipleChoice::GetIncorrectMessage(std::string aMessage, std::list<std::string> anAnswer, int aCorrect)
 {
 	std::list<std::string>::iterator i;
 	int j;

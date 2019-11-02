@@ -6,10 +6,12 @@
 class IntroOutro
 {
   public:
-	  IntroOutro(std::list<std::string> sentence);
+	  IntroOutro(std::list<std::string> aSentence);
 	  ~IntroOutro();
 
-  private:
+	  void GetInfo(std::list<std::string> aSentence);
 
+  private:
+	  std::list<std::string> sentence;
 };
 

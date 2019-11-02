@@ -1,6 +1,17 @@
 #include "IntroOutro.h"
 
-IntroOutro::IntroOutro(std::list<std::string> sentence)
+IntroOutro::IntroOutro(std::list<std::string> aSentence)
+	:sentence(aSentence)
+{
+	GetInfo(sentence);
+}
+
+IntroOutro::~IntroOutro()
+{
+
+}
+
+void IntroOutro::GetInfo(std::list<std::string> aSentence)
 {
 	std::list<std::string>::iterator i;
 	int j;
@@ -12,9 +23,4 @@ IntroOutro::IntroOutro(std::list<std::string> sentence)
 	}
 
 	std::cout << std::endl;
-}
-
-IntroOutro::~IntroOutro()
-{
-
 }
