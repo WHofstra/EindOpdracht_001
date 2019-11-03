@@ -83,6 +83,8 @@ int main()
 
 		Question = new MultipleChoice("The Toa Mahri had to fend off different types of foes to keep \'The Mask of Life\' save.\nAmong those foes was a big blue Rahi with long sharp teeth.\nWhat is the name of this creature?",
 						            { "Vezon", "Gadunka", "Umbra", "Maxilos", "Keetongu" }, 1, 2);
+		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
+		delete Question;
 
 		Question = new MultipleChoice("Which Titan of a Bionicle is known to possess the great Kanohi called: \'Olmak\'?\nThis mask grants the wearer the ability to create gates to other dimensions, thus its nickname: \'Mask of Dimensional Gates\'",
 						            { "Fenrakk", "Tahnok Va", "Axonn", "Nuju", "Brutaka" }, 4, 5);
