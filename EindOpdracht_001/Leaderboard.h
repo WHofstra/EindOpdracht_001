@@ -22,5 +22,11 @@ class Leaderboard
 
 		std::string name;
 		int score;
+
+    private:
+		//const int MAX_AMOUNT_POINTS = 59;
+
+		//std::list<std::string> leadingNames;
+		//std::list<int> leadingScores;
 };
 

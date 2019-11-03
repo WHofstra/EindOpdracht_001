@@ -30,10 +30,40 @@ void Leaderboard::GetShowLeaderboard(std::list<int> aScoreList, std::list<std::s
 {
 	std::list<int>::iterator scoreIt;
 	std::list<std::string>::iterator playIt;
-	playIt = names.begin();
+
+	//int j;
+	//int previousScore = 0;
+
+	playIt = aNameList.begin();
+
+	/*leadingScores.clear();
+	leadingScores.resize(aScoreList.size());
+
+	leadingNames.clear();
+	leadingNames.resize(aNameList.size());
+
+	for (scoreIt = aScoreList.begin(); scoreIt != aScoreList.end(); scoreIt++)
+	{
+		//j = std::distance(aScoreList.begin(), scoreIt);
+		if (*scoreIt > previousScore)
+		{
+				leadingScores.push_front(*scoreIt);
+				leadingNames.push_front(*playIt);
+		}
+		else
+		{
+				leadingScores.push_back(*scoreIt);
+				leadingNames.push_back(*playIt);
+		}
+		playIt++;
+
+		previousScore = *scoreIt;
+	}
+
+	playIt = leadingNames.begin();*/
 
 	std::cout << "Learderboard:" << std::endl << " Name:" << (char)9 << "Score:" << std::endl << " -----" << (char)9 << "------" << std::endl;
-	for (scoreIt = scores.begin(); scoreIt != scores.end(); scoreIt++)
+	for (scoreIt = aScoreList.begin(); scoreIt != aScoreList.end(); scoreIt++)
 	{
 		std::cout << " " << *playIt << (char)9 << *scoreIt << std::endl;
 		playIt++;
@@ -54,9 +84,18 @@ void Leaderboard::SetPlayerName()
 	std::cin >> input;
 	std::cout << std::endl;
 
-	for (int i = 0; i < 6; i++)
+	if (input.size() >= 6) {
+		for (int i = 0; i < 6; i++)
+		{
+			name += input[i];
+		}
+	}
+	else
 	{
-		name += input[i];
+		for (int i = 0; i < input.size(); i++)
+		{
+			name += input[i];
+		}
 	}
 
 	names.push_back(name);

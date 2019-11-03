@@ -35,12 +35,12 @@ int main()
 						            { "Spinax", "Rahi", "Rahaga", "Nocturn", "Turaga" }, 1, 3);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
 		delete Question;
-
+		
 		Question = new MultipleChoice("What was the first island on which the Toa Mata washed ashore?",
 						            { "Mata Nui", "Metru Nui", "Bara Magna", "Voya Nui"}, 0, 2);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
 		delete Question;
-
+		
 		Question = new MultipleChoice("The greatest evil force in the Matoran Universe had a name according to the lore.\nWhat was this being called?",
 						            { "Great Rode", "Protodermis", "Lewa Nuva", "Makuta Teridax", "Great Kanohi"}, 3, 3);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
@@ -110,15 +110,15 @@ int main()
 						            { "Onu-Metru", "Le-Metru", "Ko-Metru", "Ta-Metru" }, 2, 5);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
 		delete Question;
-
+		
 		PlayersOwn = new OpenQuestion({ "Do you want to add your own question? (Type \'Yes\' or \'No\'.)",
 						                "How many options can a person choose from this question?",
-						                "What would you like your question to be?",
-						                "Could you type out the options to pick from?",
+						                "What would you like your question to be? (Remember: \'Questions end with a question mark.\')",
+						                "Could you type out the options to pick from?\n(Keep in mind that you type one word at a time or use \'_\' to distinguish words.)\nDo not use the spacebar!",
 						                "Which of these options is the correct answer?" });
 		Board->score = Board->SetNewScore(Board->score, PlayersOwn->POINTS, PlayersOwn->correct);
 		delete PlayersOwn;
-
+		
 		Board->SetNewScoreLeaderBoard(Board->score);
 		Board->SetPlayerName();
 		Board->GetShowLeaderboard(Board->scores, Board->names);

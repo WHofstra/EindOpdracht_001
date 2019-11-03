@@ -27,7 +27,10 @@ OpenQuestion::OpenQuestion(std::list<std::string> aQuestion)
 		GetQuestion(*questionsIt);
 		options = SetOptions(optionAmount);
 		questionsIt++;
+	}
 
+	if ((choice) && (optionAmount != NULL) && (sizeof(options) > optionAmount))
+	{
 		GetQuestion(*questionsIt);
 		correctOne = SetCorrectAnswer(optionAmount);
 	}
@@ -86,9 +89,13 @@ bool OpenQuestion::SetVoluntarySelfService()
 
 int OpenQuestion::SetQuestionAmount()
 {
+	std::string amountInput;
 	int amount;
-	std::cin >> amount;
+
+	std::cin >> amountInput;
 	std::cout << std::endl;
+
+	amount = std::atoi(amountInput.c_str());
 
 	if (amount > 0) {
 		return amount;
@@ -99,10 +106,14 @@ int OpenQuestion::SetQuestionAmount()
 
 int OpenQuestion::SetCorrectAnswer(int amount)
 {
+	std::string correctInput;
 	int aCorrect;
+
 	std::cout << "Option number ";
-	std::cin >> aCorrect;
+	std::cin >> correctInput;
 	std::cout << std::endl;
+
+	aCorrect = std::atoi(correctInput.c_str());
 
 	if (aCorrect <= amount && aCorrect > 0)
 	{
@@ -133,6 +144,7 @@ std::list<char> OpenQuestion::SetQuestion()
 std::list<std::string> OpenQuestion::SetOptions(int amount)
 {
 	std::string fillOption;
+	std::string::iterator optIt;
 	std::list<std::string> anOption;
 
 	for (int i = 0; i < amount; i++)
@@ -142,7 +154,6 @@ std::list<std::string> OpenQuestion::SetOptions(int amount)
 		anOption.push_back(fillOption);
 	}
 	std::cout << std::endl;
-
 
 	return anOption;
 }

@@ -22,13 +22,13 @@ class OpenQuestion
 	  bool correct;
 
   private:
-	  std::list<std::string>::iterator questionsIt;
 	  std::list<char>::iterator playerIt;
+	  std::list<std::string>::iterator questionsIt;
 
+	  std::string playerQuestionNormalString;
 	  std::list<std::string> questions;
 	  std::list<char> playerQuestion;
 	  std::list<std::string> options;
-	  std::string playerQuestionNormalString;
 
 	  int correctOne;
 	  int optionAmount;
