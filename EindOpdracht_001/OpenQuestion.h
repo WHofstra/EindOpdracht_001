@@ -14,18 +14,20 @@ class OpenQuestion
 	  int SetQuestionAmount();
 	  int SetCorrectAnswer(int amount);
 
-	  std::list<std::string> SetQuestion();
+	  std::list<char> SetQuestion();
 	  std::list<std::string> SetOptions(int amount);
+
+	  const int POINTS = 5;
+
+	  bool correct;
 
   private:
 	  std::list<std::string>::iterator questionsIt;
-	  std::list<std::string>::iterator playerIt;
+	  std::list<char>::iterator playerIt;
 
 	  std::list<std::string> questions;
-	  std::list<std::string> playerQuestion;
-	  std::list<std::string> optionsNormalString;
+	  std::list<char> playerQuestion;
 	  std::list<std::string> options;
-	  //std::list<std::list<std::string>> options;
 	  std::string playerQuestionNormalString;
 
 	  int correctOne;

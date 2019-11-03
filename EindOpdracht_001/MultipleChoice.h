@@ -17,6 +17,9 @@ class MultipleChoice
 	  void GetCorrectMessage(std::string aMessage, int aPoint);
 	  void GetIncorrectMessage(std::string aMessage, std::list<std::string> anAnswer, int aCorrect);
 
+	  int points;
+	  bool correct;
+
   private:
 	  const int ASCII_CAPITAL_START_DEC = 65;
 	  const int ASCII_LOWER_START_DEC = 97;
@@ -26,7 +29,5 @@ class MultipleChoice
 	  std::string choice;
 
 	  int correctOne;
-	  int points;
 	  char input;
-	  bool correct;
 };

@@ -37,11 +37,12 @@ MultipleChoice::~MultipleChoice()
 
 int MultipleChoice::SetCorrectAnswer(int anOption[], int aCorrectInput)
 {
-	if (aCorrectInput < sizeof(anOption)) {
+	if (aCorrectInput < sizeof(anOption))
+	{
 		return aCorrectInput;
 	}
 
-	return NULL;
+	return -1;
 }
 
 void MultipleChoice::GetQuestionAndOptions(std::string aQuestion, std::list<std::string> anAnswer, int aPoint)
@@ -67,7 +68,6 @@ char MultipleChoice::SetPlayerChoice(std::list<std::string> anAnswer, std::strin
 			return aChoice[0];
 		}
 	}
-
 	std::cout << "Pick one of the options below:" << std::endl;
 
 	return NULL;
@@ -77,7 +77,8 @@ bool MultipleChoice::GetCorrectAnswer(char aChoice, int anOption[], int aCorrect
 {
 	int choiceInt;
 
-	if (aChoice != NULL && aCorrect != NULL) {
+	if (aChoice != NULL && aCorrect >= 0)
+	{
 		for (int i = 0; i < sizeof(anOption); i++) {
 			if (aChoice == (char)(i + ASCII_CAPITAL_START_DEC) || aChoice == (char)(i + ASCII_LOWER_START_DEC))
 			{

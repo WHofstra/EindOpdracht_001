@@ -18,7 +18,7 @@ OpenQuestion::OpenQuestion(std::list<std::string> aQuestion)
 		questionsIt++;
 	}
 
-	if ((choice) && (optionAmount > 0))
+	if ((choice) && (optionAmount != NULL))
 	{
 		GetQuestion(*questionsIt);
 		playerQuestion = SetQuestion();
@@ -30,14 +30,33 @@ OpenQuestion::OpenQuestion(std::list<std::string> aQuestion)
 
 		GetQuestion(*questionsIt);
 		correctOne = SetCorrectAnswer(optionAmount);
+	}
+
+	if ((choice) && (optionAmount != NULL) && (correctOne != NULL))
+	{
+		MultipleChoice* OwnQuestion;
 
 		for (playerIt = playerQuestion.begin(); playerIt != playerQuestion.end(); playerIt++)
 		{
-			playerQuestionNormalString += (*playerIt + " ");
+			playerQuestionNormalString += (*playerIt);
 		}
 
 		std::cout << std::endl;
-		new MultipleChoice(playerQuestionNormalString, options, (correctOne - 1), 5);
+		OwnQuestion = new MultipleChoice(playerQuestionNormalString, options, (correctOne - 1), POINTS);
+		correct = OwnQuestion->correct;
+		delete OwnQuestion;
+	}
+	else if (choice)
+	{ 
+		if (optionAmount == NULL)
+		{
+			std::cout << "There appears to be no answers to this question." << std::endl << "We do not ask questions which could not be answered." << std::endl << std::endl;
+		}
+		else if (correctOne == NULL)
+		{
+			std::cout << "There appears to be no correct answer to this question." << std::endl << "We do not ask questions which could not be answered." << std::endl << std::endl;
+		}
+		
 	}
 }
 
@@ -71,7 +90,11 @@ int OpenQuestion::SetQuestionAmount()
 	std::cin >> amount;
 	std::cout << std::endl;
 
-	return amount;
+	if (amount > 0) {
+		return amount;
+	}
+
+	return NULL;
 }
 
 int OpenQuestion::SetCorrectAnswer(int amount)
@@ -89,15 +112,19 @@ int OpenQuestion::SetCorrectAnswer(int amount)
 	return NULL;
 }
 
-std::list<std::string> OpenQuestion::SetQuestion()
+std::list<char> OpenQuestion::SetQuestion()
 {
-	std::list<std::string> aQuestion;
-	std::list<std::string>::iterator i;
+	std::list<char> aQuestion;
+	std::list<char>::iterator i;
 
-	for (i = aQuestion.begin(); i != aQuestion.end(); i++)
+	aQuestion.resize(1);
+
+	for (i = aQuestion.begin(); i != aQuestion.end() && *i != '?'; i++)
 	{
 		std::cin >> *i;
+		aQuestion.push_back(*i);
 	}
+	aQuestion.push_back('?');
 	std::cout << std::endl;
 
 	return aQuestion;
@@ -115,6 +142,7 @@ std::list<std::string> OpenQuestion::SetOptions(int amount)
 		anOption.push_back(fillOption);
 	}
 	std::cout << std::endl;
+
 
 	return anOption;
 }

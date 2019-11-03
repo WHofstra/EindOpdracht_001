@@ -153,13 +153,17 @@
   <ItemGroup>
     <ClCompile Include="EindOpdracht_001.cpp" />
     <ClCompile Include="IntroOutro.cpp" />
+    <ClCompile Include="Leaderboard.cpp" />
     <ClCompile Include="MultipleChoice.cpp" />
     <ClCompile Include="OpenQuestion.cpp" />
+    <ClCompile Include="ResetButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IntroOutro.h" />
+    <ClInclude Include="Leaderboard.h" />
     <ClInclude Include="MultipleChoice.h" />
     <ClInclude Include="OpenQuestion.h" />
+    <ClInclude Include="ResetButton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

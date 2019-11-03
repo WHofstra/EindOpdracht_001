@@ -8,7 +8,7 @@ IntroOutro::IntroOutro(std::list<std::string> aSentence)
 
 IntroOutro::~IntroOutro()
 {
-
+	
 }
 
 void IntroOutro::GetInfo(std::list<std::string> aSentence)
