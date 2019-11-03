@@ -5,6 +5,7 @@
 
 #include "MultipleChoice.h"
 #include "IntroOutro.h"
+#include "OpenQuestion.h"
 
 int main()
 {
@@ -72,9 +73,13 @@ int main()
 	new MultipleChoice("Which part of Metru Nui contains the element of ice and contains gigantic icy pillars called \'The Knowledge Towers\'?",
 		             { "Onu-Metru", "Le-Metru", "Ko-Metru", "Ta-Metru" }, 2, 5);
 
-	//Player's own question (+5 points)
+	new OpenQuestion({ "Do you want to add your own question? (Type \'Yes\' or \'No\'.)",
+		               "How many options can a person choose from this question?",
+		               "What would you like your question to be?",
+					   "Could you type out the options to pick from?",
+		               "Which of these options is the correct answer?" });
 					 
-	new IntroOutro({ "Thank you for answering all questions and adding your own question.",
+	new IntroOutro({ "Thank you for answering all questions. I hope you enjoyed this little quest for knowledge.",
 					 "Have a nice day, and live by these wise words:",
 					 "\"Unity. Duty. Destiny.\"" });
 
