@@ -75,7 +75,7 @@ int main()
 						            { "Zamor Launchers", "Kanoka Discs", "Cordak Blasters", "Squid Lauchers", "Rhotuka Spinners", "Thornax Launchers" }, 0, 3);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
 		delete Question;
-
+		
 		Question = new MultipleChoice("And what would be the tool used by the Visorak and Toa Hordika to shoot their projectiles?",
 						            { "Zamor Launchers", "Kanoka Discs", "Cordak Blasters", "Squid Lauchers", "Rhotuka Spinners", "Thornax Launchers" }, 4, 3);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
@@ -90,7 +90,7 @@ int main()
 						            { "Fenrakk", "Tahnok Va", "Axonn", "Nuju", "Brutaka" }, 4, 5);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);
 		delete Question;
-
+		
 		Question = new MultipleChoice("Before the Rahaga's physical appearance and abilities came to resemble that of Rahkshi, they used to be Toa.\nWhat was their alias during their time of guardianship?",
 						            { "Toa Cordak", "Toa Metru", "Toa Volitak", "Toa Hagah" }, 3, 3);
 		Board->score = Board->SetNewScore(Board->score, Question->points, Question->correct);

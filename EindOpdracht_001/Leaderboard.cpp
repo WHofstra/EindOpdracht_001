@@ -62,7 +62,7 @@ void Leaderboard::GetShowLeaderboard(std::list<int> aScoreList, std::list<std::s
 
 	playIt = leadingNames.begin();*/
 
-	std::cout << "Learderboard:" << std::endl << " Name:" << (char)9 << "Score:" << std::endl << " -----" << (char)9 << "------" << std::endl;
+	std::cout << "Leaderboard:" << std::endl << " Name:" << (char)9 << "Score:" << std::endl << " -----" << (char)9 << "------" << std::endl;
 	for (scoreIt = aScoreList.begin(); scoreIt != aScoreList.end(); scoreIt++)
 	{
 		std::cout << " " << *playIt << (char)9 << *scoreIt << std::endl;
